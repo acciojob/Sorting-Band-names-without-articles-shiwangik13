@@ -1,15 +1,10 @@
-const bands = ['The Virupaksha Temple', 'Victoria Memorial', 'Tajmahal'];
+let touristSpots = ['The Virupaksha Temple', 'Victoria Memorial', 'Tajmahal'];
 
-function strip(bandName) {
-	return bandName.replace(/^(a |the |an)/i, '').trim();
-	
+let compare = (a,b) => {
+	return a-b;
 }
-const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
 
-document.querySelector('#band').innerHTML = 
-	sortedBands
-    .map(band => `<li>${band}</li>`)
-.join('')
-
-console.log(sortedBands);
+touristSpots.sort(compare);
+console.log(touristSpots);
+	
 
