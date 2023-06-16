@@ -1,12 +1,15 @@
-let touristSpots = ['The Virupaksha Temple', 'Victoria Memorial', 'Tajmahal'];
-//arr.sort()
-//consol.log(arr)
-function strip (word) {
-    let regex = new RegExp('^(a |the |an )', 'i')
-    return word.replace(regex, '').trim()
+const bands = ['The Virupaksha Temple', 'Victoria Memorial', 'Tajmahal'];
+
+function strip(bandName) {
+	return bandName.replace(/^(a |the |an)/i, '').trim();
+	
 }
+const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
 
-const sortedTouristSpots  = touristSpots.sort((a, b) => (strip(a) > strip(b)) ? 1 : -1)
+document.querySelector('#band').innerHTML = 
+	sortedBands
+    .map(band => `<li>${band}</li>`)
+.join('')
 
-document.querySelector('#bands').innerHTML = 
-    sortedTouristSpots.map(item => `<li>${item}</li>`).join('')
+console.log(sortedBands);
+
